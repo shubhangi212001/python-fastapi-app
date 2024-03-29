@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 # MySQL connection details
 MYSQL_USER = "root"
 MYSQL_PASSWORD = "support#123"
-MYSQL_HOST = "172.16.22.49"  # Remove port from host
+MYSQL_HOST = "172.16.22.122"  # Remove port from host
 MYSQL_PORT = "4807"
 MYSQL_DATABASE = "fastapi_mysql"
 
