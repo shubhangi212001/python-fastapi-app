@@ -6,6 +6,10 @@ services:
     container_name: demo2-phpmyadmin
     ports:
       - "8078:80"
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
 
   mysql:
     image: mysql
