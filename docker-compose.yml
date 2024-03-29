@@ -10,6 +10,7 @@ services:
       - mysql
     environment:
       PMA_HOST: mysql
+  
 
   mysql:
     image: mysql
