@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  phpmyadmin:
+    image: phpmyadmin:5.0.2
+    container_name: demo2-phpmyadmin
+    ports:
+      - "8078:80"
+
+  mysql:
+    image: mysql
+    container_name: demo2_database
+    ports:
+      - "4807:3306"
+    environment:
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "support#123" 
+      MYSQL_DATABASE: "fastapi_mysql"
+      
+  python:
+    build: .
+    container_name: my-fastapi-app-0
+    ports:
+      - "8084:8083"
+    volumes:
+      - "$PWD:/dastapp/"
+
