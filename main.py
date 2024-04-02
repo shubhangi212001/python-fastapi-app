@@ -96,5 +96,5 @@ def delete_website(website_id: int, db: Session = Depends(get_db)):
 
 
 if __name__ == '__main__':
-    uvicorn.run("main:app", host='172.16.22.49', port=8084, log_level="error", reload = True)
+    uvicorn.run("main:app", host='172.16.22.122', port=8085, log_level="error", reload = True)
     print("running")

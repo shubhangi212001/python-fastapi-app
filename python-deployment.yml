@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python
+  template:
+    metadata:
+      labels:
+        app: python
+    spec:
+      containers:
+        - name: python
+          image: shubhangihshinde/fastapi-py-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8085
+          volumeMounts:
+            - name: dastapp
+              mountPath: /dastapp
+      volumes:
+        - name: dastapp
+          hostPath:
+            path: /root/doc-projects/k8s-deployments/python-fastapi-app
+
