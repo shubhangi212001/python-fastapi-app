@@ -1,5 +1,9 @@
 # Run phpmyadmin, mysql database and fastapi app containers
 
+$vim database.py  ---------- change IP address 
+$vim main.py  --------------- change IP address
+$vim Dockerfile  ------------ change internal port of application if needed
+
 -------------------------------
 phpmyadmin
 -------------------------------
@@ -21,7 +25,7 @@ docker build -t my-fastapi-app .
 docker run -v "$PWD":/dastapp/ -p 8083:8083  --name my-fastapi-app -itd my-fastapi-app
  
 
-# python-fastapi-app docker-compose
+# Try all the above things using docker-copmpose 
 
 $docker-compose up  ---- command to deploy application using docker compose
 $docker-compose down  ----- command to down docker compose 
@@ -29,8 +33,14 @@ $docker-compose down  ----- command to down docker compose
 
 # Deploy application using kubernetes
 
- $vim database.py  ---------- change IP address 
- $vim main.py  --------------- change IP address
+$kubectl apply -f deployment.yml   -------- this is the deployment file of kubernetes
+$kubectl get deployments   ------ list all deployments
+$kubectls get pods  ---------- list all pods
+$kubectl get svc   --------list all services
+
+
+ 
+ 
 
 
 
