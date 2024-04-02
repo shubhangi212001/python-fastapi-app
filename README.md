@@ -1,7 +1,9 @@
 # Run phpmyadmin, mysql database and fastapi app containers
 
 $vim database.py  ---------- change IP address 
+
 $vim main.py  --------------- change IP address
+
 $vim Dockerfile  ------------ change internal port of application if needed
 
 -------------------------------
