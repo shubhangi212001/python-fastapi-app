@@ -37,8 +37,6 @@ $docker-compose down  ----- command to down docker compose
 
 # write a jenkins file to do docker-compose using jenkins CI/CD
 
-JENKINSFILE
-
 pipeline {
     agent any
     
