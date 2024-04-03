@@ -17,16 +17,31 @@ pipeline {
                 git credentialsId: 'gitlab-credentials', url: "https://gitlab360.enlight.dev/shubhangishinde/python-fastapi-app.git", branch: "main"
             }
         }
-        stage('Deploying App to Kubernetes') {
-      steps {
-        script {
-          kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubernetes", deleteAction: true)
-          kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubernetes")
-          kubernetesDeploy(configs: "service.yml", kubeconfigId: "kubernetes")
+        #stage('Deploying App to Kubernetes') {
+      #steps {
+       # script {
+         # kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubernetes", deleteAction: true)
+         # kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubernetes")
+         # kubernetesDeploy(configs: "service.yml", kubeconfigId: "kubernetes")
+       # }
+     # }
+   # }
+        stage('Deploy to Kubernetes'){
+            steps{
+                script{
+                    
+                        withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s_122', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                                sh 'kubectl delete -f deployment.yml'
+                                sh 'kubectl delete -f service.yml'
+                                sh 'kubectl apply -f deployment.yml'
+                                sh 'kubectl apply -f service.yml'
+                                sh 'kubectl get svc'
+                                sh 'kubectl get all'
+                        }   
+                    
+                }
+            }
         }
-      }
-    }
-     
     }
     post {
         always {
