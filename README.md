@@ -86,6 +86,50 @@ $kubectl delete -f deployment.yml
 
 $kubectl delete -f service.yml
 
+------------------------------------------------------------------------------------
+Check and test crud operations using this following sql queries
+-----------------------------------------------------------------------------------
+
+ login to your phpmyadmin and go to your fastapi_mysql db to execute this query
+ first you have to create tables into your database
+
+--------------------
+user table
+--------------------
+ CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255) UNIQUE
+);
+
+-----------------------
+website table
+-----------------------
+
+CREATE TABLE websites (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    url VARCHAR(255),
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+--------------------------
+vulnerability check table
+--------------------------
+
+CREATE TABLE vulnerabilities (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    website_id INT,
+    name VARCHAR(255),
+    description VARCHAR(255),
+    FOREIGN KEY (website_id) REFERENCES websites(id)
+);
+
+
+Then go to fastapi and perform all crud operation insert values and check these are reflected 
+in your databse tables
+
+
  
  
 
