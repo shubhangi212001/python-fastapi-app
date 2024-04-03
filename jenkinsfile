@@ -17,15 +17,7 @@ pipeline {
                 git credentialsId: 'gitlab-credentials', url: "https://gitlab360.enlight.dev/shubhangishinde/python-fastapi-app.git", branch: "main"
             }
         }
-        #stage('Deploying App to Kubernetes') {
-      #steps {
-       # script {
-         # kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubernetes", deleteAction: true)
-         # kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubernetes")
-         # kubernetesDeploy(configs: "service.yml", kubeconfigId: "kubernetes")
-       # }
-     # }
-   # }
+       
         stage('Deploy to Kubernetes'){
             steps{
                 script{
