@@ -40,6 +40,7 @@ $docker-compose down  ----- command to down docker compose
 ------------------------------------------------------------------------------------
 pipeline {
     agent any 
+    
     environment {
         GITHUB_CREDENTIALS = credentials('github-credentials')
         GITHUB_USERNAME = 'github-credentials.username'
@@ -128,6 +129,11 @@ CREATE TABLE vulnerabilities (
 
 Then go to fastapi and perform all crud operation insert values and check these are reflected 
 in your databse tables
+
+------------------------------------------------------------------------------
+Kubernetes Deployment of application using jenkins CI/CD pipeline
+for that use "jenkins-k8s" jenkins file 
+------------------------------------------------------------------------------
 
 
  
