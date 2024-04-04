@@ -25,7 +25,7 @@ def create_user(user: UserCreate):
     return crud.create_user(user)
 
 # API to add website details
-@app.post("/websites/")
+@app.post("/websitescreate/")
 def create_website(website: WebsiteCreate):
     return crud.create_website(website)
 
