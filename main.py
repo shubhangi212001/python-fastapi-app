@@ -20,7 +20,7 @@ def get_db():
 
 
 # API to add user details
-@app.post("/users/")
+@app.post("/userscreate/")
 def create_user(user: UserCreate):
     return crud.create_user(user)
 
