@@ -20,16 +20,16 @@ pipeline {
          stage('Build') {
             steps {
                 echo 'Building the image'
-                sh "docker build -t fastapi-py-app ."
+                sh "docker build -t fastapi ."
             }
         }
         stage('Push') {
             steps {
                 echo 'Pushing docker image on Docker Hub'
                 withCredentials([usernamePassword(credentialsId: 'DOCKERHUB', passwordVariable: 'dockerHubpass', usernameVariable: 'dockerHubuser')]) {
-                    sh "docker tag fastapi-py-app ${env.dockerHubuser}/fastapi-py-app:latest"
+                    sh "docker tag fastapi ${env.dockerHubuser}/fastapi:latest"
                     sh "docker login -u ${env.dockerHubuser} -p ${env.dockerHubpass}"
-                    sh "docker push ${env.dockerHubuser}/fastapi-py-app:latest"
+                    sh "docker push ${env.dockerHubuser}/fastapi:latest"
                 }
             }
         }
