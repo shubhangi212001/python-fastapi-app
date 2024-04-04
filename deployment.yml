@@ -76,5 +76,5 @@ spec:
       volumes:
         - name: dastapp
           hostPath:
-            path: /root/doc-projects/k8s-deployments/python-fastapi-app
+            path: /home/dastapp
 
