@@ -14,7 +14,7 @@ pipeline {
         }
         stage("Code"){
             steps{
-                git credentialsId: 'gitlab-credentials', url: "https://gitlab360.enlight.dev/shubhangishinde/python-fastapi-app.git", branch: "main"
+                git credentialsId: 'gitlab-credentials', url: "https://github.com/shubhangi212001/python-fastapi-app.git", branch: "main"
             }
         }
          stage('Build') {
