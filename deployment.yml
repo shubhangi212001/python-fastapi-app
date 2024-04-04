@@ -70,11 +70,11 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8085
-          volumeMounts:
-            - name: dastapp
-              mountPath: /dastapp
-      volumes:
-        - name: dastapp
-          hostPath:
-            path: /home/dastapp
+      #     volumeMounts:
+      #       - name: dastapp
+      #         mountPath: /dastapp
+      # volumes:
+      #   - name: dastapp
+      #     hostPath:
+      #       path: /home/dastapp
 
