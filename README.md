@@ -11,7 +11,7 @@ phpmyadmin
 -------------------------------
 docker pull phpmyadmin:5.0.2
 
-docker run --name demo1-phpmyadmin -d -p 8067:80 -e PMA_HOST=172.17.0.9:3306 phpmyadmin/phpmyadmin:5.0.2
+docker run --name demo1-phpmyadmin -d -p 8067:80 -e PMA_HOST=<IP_address>:3306 phpmyadmin/phpmyadmin:5.0.2
 
 -------------------------------
 mysql
@@ -19,7 +19,7 @@ mysql
  
 docker run -itd --name demo1_database -e MYSQL_ROOT_PASSWORD=support#123 -p 4806:3306 mysql
 
-docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 378343673dcd
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <containerid>
  
 -------------------------------
 python 
